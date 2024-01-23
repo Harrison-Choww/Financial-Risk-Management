@@ -1,0 +1,86 @@
+---
+title: "Financial Risk Analysis"
+author: "Harrison Chow"
+date: "2024-01-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+
+list.files(path = "../input")
+```
+```{r}
+library(ISLR)
+```
+
+```{r}
+Default
+```
+
+
+```{r}
+summary(Default)
+```
+```{r}
+help(Default)
+```
+
+```{r}
+#percentage of default
+333/1000
+```
+```{r}
+sum(Default$balance)
+```
+```{r}
+library(rms)
+```
+```{r}
+help(lrm)
+```
+
+```{r}
+lrm(default~student+balance+income, data = Default)
+```
+```{r}
+lm(balance~income+student,data=Default)
+```
+
+```{r}
+attach(Default)
+```
+
+```{r}
+summary(balance)
+```
+
+```{r}
+plot(default,balance)
+```
+
+```{r}
+summary(default)
+```
+
+```{r}
+install.packages("bitops",repos="https://cran.r-project.org/bin/windows/contrib/3.3/bitops_1.0-6.zip",dependencies=TRUE,type="source") 
+```
+```{r}
+ install.packages('abind')
+ install.packages('zoo')
+ install.packages('xts')
+ install.packages('quantmod')
+ install.packages('ROCR')
+ install.packages("DMwR")
+ library(DMwR)
+```
+```{r}
+Default.smote=SMOTE(default~.,data=Default)
+summary(Default.smote)
+```
+
